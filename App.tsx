@@ -3,6 +3,7 @@ import { Text, View, StyleSheet } from 'react-native';
 import Entypo from '@expo/vector-icons/Entypo';
 import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
+import ReferenceRange from './src/components/ReferenceRange';
 
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
@@ -50,62 +51,7 @@ export default function App() {
       onLayout={onLayoutRootView}>
       <Text style={{fontSize: 30, fontWeight: 'bold', color: '#01579B' }}>HealthQ</Text>
       <Entypo name="circle-with-plus" size={40} color={'red'} />
-      <View style={[styles.container, { marginBottom: 10 }]}>
-        {/* <View style={[styles.redPartFirst, { width: '20%', height: 30 }]}>
-          <Text style={{textAlign: 'right'}}>2</Text>
-        </View> */}
-        <View style={[styles.greenPart, { width: '60%', height: 20}]}>
-          <Text style={{textAlign: 'right'}}>2.5</Text>
-        </View>
-        {/* <View style={[styles.redPartSecond, { width: '30%' }]}>
-          <View style={[styles.redPartFirst, { width: '30%', height: 30 }]}>
-            <Text style={{textAlign: 'left'}}>3</Text>
-          </View>
-        </View> */}
-      </View>
-      <View style={styles.container}>
-        <View style={[styles.redPartFirst, { width: '20%', backgroundColor: 'red' }]} />
-        <View style={[styles.greenPart, { width: '37.5%', backgroundColor: 'green' }]} />
-        <View style={[styles.greenPart, { width: '0.5%', backgroundColor: 'white' }]} />
-        <View style={[styles.greenPart, { width: '12%', backgroundColor: 'green' }]} />
-        <View style={[styles.redPartSecond, { width: '30%', backgroundColor: 'red' }]} />
-      </View>
-      <View style={[styles.container, { marginTop: 0 }]}>
-        <View style={[styles.redPartFirst, { width: '20%', height: 30 }]}>
-          <Text style={{textAlign: 'right'}}>2</Text>
-        </View>
-        <View style={[styles.greenPart, { width: '50%' }]} />
-        <View style={[styles.redPartSecond, { width: '30%' }]}>
-          <View style={[styles.redPartFirst, { width: '30%', height: 30 }]}>
-            <Text style={{textAlign: 'left'}}>3</Text>
-          </View>
-        </View>
-      </View>
+      <ReferenceRange minValue={0.3} maxValue={1.2} value={1.0} unit={'mg/dL'} />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    width: '80%',
-    // justifyContent: 'space-between',
-    //marginTop: 30,
-    height: 10,
-  },
-  redPartFirst: {
-    // flex: 1,
-    //width: '20%',
-    // backgroundColor: 'red',
-  },
-  greenPart: {
-    // flex: 1,
-    // width: '40%',
-    // backgroundColor: 'green',
-  },
-  redPartSecond: {
-    // flex: 1,
-    // width: '40%',
-    // backgroundColor: 'red',
-  },
-})
